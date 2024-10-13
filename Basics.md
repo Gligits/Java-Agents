@@ -68,3 +68,4 @@ To create a behavior, you extend one of the behavior classes (Behaviour, CyclicB
     }
     }
     
+**Note : while doing a cyclyc execution an inversion might occur due to the way the JADE platform processes and schedules agents. When you launch multiple agents in JADE, the execution order isn't strictly guaranteed to follow the order in which the agents are listed. JADE manages agents as separate threads, and the operating system schedules these threads for execution, leading to potential variations in the order of output.**
