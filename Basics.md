@@ -68,4 +68,27 @@ To create a behavior, you extend one of the behavior classes (Behaviour, CyclicB
     }
     }
     
-**Note : while doing a cyclyc execution an inversion might occur due to the way the JADE platform processes and schedules agents. When you launch multiple agents in JADE, the execution order isn't strictly guaranteed to follow the order in which the agents are listed. JADE manages agents as separate threads, and the operating system schedules these threads for execution, leading to potential variations in the order of output.**
+Note : while doing an execution like this : 
+
+    import jade.core.Agent;
+
+    public class Agent2 extends Agent {
+	
+	public void setup(){
+			System.out.println("Hello world my name is " + getLocalName()); addBehaviour(new B1());
+			}
+	public static void main(String[] args) {
+		String [] jadeArg = new String [2];
+		StringBuffer SbAgent = new StringBuffer();
+		SbAgent.append("S1:Agent2;");
+		SbAgent.append("S2:Agent2;");
+		SbAgent.append("S3:Agent2;");
+
+
+		jadeArg[0]="-gui";
+		jadeArg[1]=SbAgent.toString();
+		jade.Boot.main(jadeArg);
+		}
+    }
+
+an inversion might occur due to the way the JADE platform processes and schedules agents. When you launch multiple agents in JADE, the execution order isn't strictly guaranteed to follow the order in which the agents are listed. JADE manages agents as separate threads, and the operating system schedules these threads for execution, leading to potential variations in the order of output.
