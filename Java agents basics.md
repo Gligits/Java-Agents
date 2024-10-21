@@ -15,6 +15,9 @@ The `setup()` method is where you initialize the agent and define its behaviors.
         System.out.println("Hello, I am " + getLocalName());
     }
     }
+Note that to run this, you'll need to introduce the arguments through the RUN CONFIGURATIONS as shown here :
+**-flag identifier:classname**
+In this case you can use : **-gui GLIGITS:YOURCLASSNAME**
 
 ## Behaviors
 
@@ -67,7 +70,7 @@ To create a behavior, you extend one of the behavior classes (Behaviour, CyclicB
         addBehaviour(new MyBehavior()); // Adding a behavior to the agent
     }
     }
-    
+
 Note : while doing an execution like this : 
 
     import jade.core.Agent;
@@ -91,4 +94,11 @@ Note : while doing an execution like this :
 		}
     }
 
-an inversion might occur due to the way the JADE platform processes and schedules agents. When you launch multiple agents in JADE, the execution order isn't strictly guaranteed to follow the order in which the agents are listed. JADE manages agents as separate threads, and the operating system schedules these threads for execution, leading to potential variations in the order of output.
+An inversion might occur due to the way the JADE platform processes and schedules agents. When you launch multiple agents in JADE, the execution order isn't strictly guaranteed to follow the order in which the agents are listed. JADE manages agents as separate threads, and the operating system schedules these threads for execution, leading to potential variations in the order of output.
+Another thing that you might have noticed is that this execution contains the arguments here 
+
+    jadeArg[0]="-gui";
+    jadeArg[1]=SbAgent.toString();
+    jade.Boot.main(jadeArg);
+
+This means you won't need to introduce them when you want to run it, so you can directly click on RUN!
